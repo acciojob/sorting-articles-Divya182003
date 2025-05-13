@@ -1,1 +1,29 @@
-/*  your css code here. If applicable */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: url('background.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.container {
+    width: 400px;
+    margin: 50px auto;
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 20px;
+    border-radius: 10px;
+    overflow-y: auto;
+    max-height: 80vh;
+}
+
+.band-list {
+    list-style-type: square;
+    padding-left: 20px;
+    margin: 0;
+}
+
+.band-list li {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
