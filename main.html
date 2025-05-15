@@ -1,8 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Alphabetical Article Sorter</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alphabetical Article List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background:url('https://images.unsplash.com/photo-1506744038136-46273834b3fb');
+			background-size:cover
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        ul#band {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px auto;
+            max-width: 600px;
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        ul#band li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            color: #555;
+        }
+        ul#band li:last-child {
+            border-bottom: none;
+        }
+        ul#band li:hover {
+            background-color: #f0f0f0;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
+    <h1>Articles</h1>
+    <ul id="band"></ul>
+    <script>
+        const bands = ['The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'Norma Jean', 'The Bled', 'Say Anything', 'The Midway State', 'We Came as Romans', 'Counterparts', 'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'];
+
+        function removeArticles(text) {
+            return text.replace(/^(a |an |the )/i, '');
+        }
+
+        bands.sort((a, b) => {
+            const nameA = removeArticles(a).toLowerCase();
+            const nameB = removeArticles(b).toLowerCase();
+            if (nameA < nameB) return -1;
+            if (nameA > nameB) return 1;
+            return 0;
+        });
+
+        const bandList = document.getElementById('band');
+        bands.forEach(bandName => {
+            const li = document.createElement('li');
+            li.textContent = bandName;
+            bandList.appendChild(li);
+        });
+    </script>
+</body>
+</html>
